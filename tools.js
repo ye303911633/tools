@@ -60,7 +60,7 @@ kits.charMore = function (item){
         arr[item[i]] = 1;
        }
    }
-
+   
     var max = 0;
     var index = '';
     for(var key in arr){
@@ -97,17 +97,30 @@ kits.findMin = function(item){
 
 // 10. 格式化时间
 kits.formatDate = function(){
-    var data = new Date();
-    return console.log(data);
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDay();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    var timer = year + '/' + fn(month) + '/' + fn(day) + ' ' + fn(hours) +':' + fn(minutes) + ':' + fn(seconds);
+    
+    function fn(temp){
+        parseInt(temp) < 10 ? temp = '0' + temp : temp; 
+        return temp;
+    }
+    return timer;
 }
 
 //11. 查找某个字符串在数组中的所有的索引
-kits.findIndex = function(n){
-    for(var i = 0; i < arguments.length; i++){
-        if(arguments[i].indexOf(n) != -1){
-            console.log(i+1)
+kits.findIndex = function(arr, n){
+    for(var i = 0; i < arr.length; i++){
+        if(arr[i].indexOf(n) != -1){
+            console.log(n+'的索引在：'+(i+1));
         }
     }
+    return '以上就是所有索引值！';
 }
 
 
